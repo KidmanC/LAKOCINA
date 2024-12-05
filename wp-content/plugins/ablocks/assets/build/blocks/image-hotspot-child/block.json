@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ablocks/image-hotspot-child",
+  "version": "0.1.0",
+  "title": "Image Hotspot Child",
+  "category": "ablocks",
+  "description": "Add customizable, impactful image hotspot-child.",
+  "example": {},
+  "parent": [
+    "ablocks/image-hotspot"
+  ],
+  "supports": {
+    "html": true,
+    "anchor": true
+  },
+  "textdomain": "ablocks",
+  "style": [
+    "file:./style.css"
+  ],
+  "viewScript": "file:./view.js"
+}

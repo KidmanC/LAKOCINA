@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ablocks/form-multi-step",
+  "version": "0.1.0",
+  "title": "Multi Step",
+  "category": "ablocks",
+  "description": "Add customizable, impactful forms.",
+  "example": {},
+  "supports": {
+    "html": true,
+    "anchor": true
+  },
+  "textdomain": "ablocks",
+  "style": [
+    "file:./style.css"
+  ],
+  "viewScript": [
+    "file:./view.js"
+  ]
+}

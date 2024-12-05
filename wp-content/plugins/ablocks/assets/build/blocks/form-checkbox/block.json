@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ablocks/form-checkbox",
+  "parent": [
+    "ablocks/form-builder",
+    "ablocks/form-multi-step"
+  ],
+  "version": "0.1.0",
+  "title": "Checkbox",
+  "category": "ablocks",
+  "description": "Easily add adjustable layout spacing.",
+  "example": {},
+  "supports": {
+    "html": true,
+    "anchor": true
+  },
+  "textdomain": "ablocks",
+  "editorStyle": [
+    "file:./style.css"
+  ],
+  "editorScript": [
+    "ablocks-common-script"
+  ]
+}

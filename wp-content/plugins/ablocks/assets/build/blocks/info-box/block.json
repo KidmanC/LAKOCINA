@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ablocks/info-box",
+  "version": "0.1.0",
+  "title": "Info Box",
+  "category": "ablocks",
+  "description": "Add customizable, impactful headings.",
+  "keywords": [
+    "ablocks",
+    "information",
+    "info",
+    "details",
+    "search",
+    "title",
+    "sub title"
+  ],
+  "example": {},
+  "supports": {
+    "html": true,
+    "anchor": true
+  },
+  "textdomain": "ablocks",
+  "editorStyle": [
+    "ablocks-animate-style",
+    "ablocks-common-style",
+    "file:./style.css"
+  ],
+  "editorScript": [
+    "ablocks-common-script"
+  ]
+}

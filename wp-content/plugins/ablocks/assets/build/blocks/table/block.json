@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ablocks/table",
+  "version": "0.1.0",
+  "title": "Table",
+  "category": "ablocks",
+  "description": "Create a fully customizable, responsive table. Supports multiple rows and columns",
+  "example": {},
+  "supports": {
+    "html": true,
+    "anchor": true
+  },
+  "textdomain": "ablocks",
+  "editorStyle": [
+    "ablocks-animate-style",
+    "ablocks-common-style",
+    "file:./style.css"
+  ]
+}

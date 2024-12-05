@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ablocks/form-radio",
+  "parent": [
+    "ablocks/form-builder"
+  ],
+  "version": "0.1.0",
+  "title": "Radio",
+  "category": "ablocks",
+  "description": "Easily add adjustable layout spacing.",
+  "example": {},
+  "supports": {
+    "html": true,
+    "anchor": true
+  },
+  "textdomain": "ablocks",
+  "editorStyle": [
+    "file:./style.css"
+  ]
+}

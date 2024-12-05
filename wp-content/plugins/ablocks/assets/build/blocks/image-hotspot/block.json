@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ablocks/image-hotspot",
+  "version": "0.1.0",
+  "title": "Image Hotspot",
+  "category": "ablocks",
+  "description": "Add customizable, impactful image hotspot.",
+  "example": {},
+  "supports": {
+    "html": true,
+    "anchor": true
+  },
+  "textdomain": "ablocks",
+  "editorStyle": [
+    "ablocks-animate-style",
+    "ablocks-common-style",
+    "file:./style.css"
+  ],
+  "editorScript": [
+    "ablocks-common-script",
+    "file:./view.js"
+  ]
+}
