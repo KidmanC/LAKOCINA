@@ -6,7 +6,7 @@
   "title": "Tabs Child",
   "category": "ablocks",
   "description": "Design stylish call-to-action tabs-child.",
-  "example": {},
+  "example": [],
   "parent": [
     "ablocks/tabs"
   ],
@@ -22,5 +22,15 @@
   ],
   "editorScript": [
     "ablocks-common-script"
-  ]
+  ],
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "default": ""
+    },
+    "tabId": {
+      "type": "number",
+      "default": 0
+    }
+  }
 }

@@ -102,11 +102,13 @@ $attributes = array_merge(
 		'attributeName' => 'closeBtnTop',
 		'isResponsive' => false,
 		'defaultValue' => 5,
+		'hasUnit' => false,
 	]),
 	Range::get_attribute([
 		'attributeName' => 'closeBtnSide',
 		'isResponsive' => false,
 		'defaultValue' => 5,
+		'hasUnit' => false,
 	]),
 	Dimensions::get_attribute( 'panelPadding', true ),
 	Background::get_attribute( 'panelBackground' ),
@@ -114,4 +116,4 @@ $attributes = array_merge(
 	BoxShadow::get_attribute( 'panelShadow', true ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );

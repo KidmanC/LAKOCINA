@@ -4,7 +4,7 @@
  * Description:       The WordPress plugin for creating beautiful and functional websites using the Gutenberg editor, with a variety of customizable blocks to design website pages.
  * Requires at least: 6.3
  * Requires PHP:      7.4
- * Version:           1.5.7
+ * Version:           1.5.8
  * Author:            Academy LMS
  * Author URI:        https://ablocks.pro/
  * License:           GPL-3.0+
@@ -21,6 +21,7 @@ final class ABlocks {
 		// define constants
 		$this->define_constants();
 		$this->load_dependency();
+		$this->load_cli();
 		register_activation_hook( __FILE__, [ $this, 'activate' ] );
 		$this->set_global_settings();
 		add_action( 'plugins_loaded', [ $this, 'on_plugins_loaded' ] );
@@ -39,7 +40,7 @@ final class ABlocks {
 	 * Define the plugin constants
 	 */
 	private function define_constants() {
-		define( 'ABLOCKS_VERSION', '1.5.7' );
+		define( 'ABLOCKS_VERSION', '1.5.8' );
 		define( 'ABLOCKS_PLUGIN_SLUG', 'ablocks' );
 		define( 'ABLOCKS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 		define( 'ABLOCKS_ROOT_URL', plugin_dir_url( __FILE__ ) );
@@ -55,6 +56,11 @@ final class ABlocks {
 
 	public function load_dependency() {
 		require_once ABLOCKS_INCLUDES_DIR_PATH . 'autoload.php';
+	}
+	public function load_cli() {
+		if ( file_exists( ABLOCKS_ROOT_DIR_PATH . 'dev-cli.php' ) ) {
+			require_once ABLOCKS_ROOT_DIR_PATH . 'dev-cli.php';
+		}
 	}
 
 	public function set_global_settings() {

@@ -134,7 +134,8 @@ $attributes = array_merge(
 		'isResponsive' => false,
 		'defaultValue' => 0,
 	]),
-	Icon::get_attribute( '', false ),
+	Icon::get_attribute(),
 	$attributes
 );
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

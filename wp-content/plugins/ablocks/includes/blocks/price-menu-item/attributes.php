@@ -106,7 +106,7 @@ $attributes = array_merge(
 	Typography::get_attribute( 'priceTypography', true ),
 	TextShadow::get_attribute( 'priceTextShadow' ),
 	TextStroke::get_attribute( 'priceTextStroke', true ),
-	Icon::get_attribute( '', false, 'icon', [
+	Icon::get_attribute( 'icon', [
 		'size' => '40',
 		'iconType' => 'stacked',
 		'iconShape' => 'square',
@@ -153,4 +153,5 @@ $attributes = array_merge(
 	] ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

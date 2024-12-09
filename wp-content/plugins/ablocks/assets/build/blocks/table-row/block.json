@@ -6,7 +6,7 @@
   "title": "table-row",
   "category": "ablocks",
   "description": "Create a fully customizable, responsive table. Supports multiple rows and columns",
-  "example": {},
+  "example": [],
   "parent": [
     "ablocks/table"
   ],
@@ -21,5 +21,19 @@
   "editorScript": [
     "ablocks-common-script",
     "file:./view.js"
-  ]
+  ],
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "default": ""
+    },
+    "rowColor": {
+      "type": "string",
+      "default": ""
+    },
+    "rowColorH": {
+      "type": "string",
+      "default": ""
+    }
+  }
 }

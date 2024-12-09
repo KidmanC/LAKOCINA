@@ -62,6 +62,9 @@ class Typography extends ControlBaseAbstract {
 
 	public static function get_css( $attribute_value, $property = '', $device = '' ) {
 		global $ablocks_fonts;
+		if ( empty( $attribute_value ) ) {
+			return [];
+		}
 		$default_attr_value = self::get_attribute_default_value( (bool) $device );
 		$value = wp_parse_args( $attribute_value, $default_attr_value );
 		$css = [];

@@ -23,4 +23,5 @@ $attributes = array_merge(
 	Typography::get_attribute( 'typography', true ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

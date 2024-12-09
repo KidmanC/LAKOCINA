@@ -16,7 +16,7 @@ $attributes = [
 	),
 	'course_id' => array(
 		'type' => 'number',
-		'default' => '',
+		'default' => 0,
 	),
 	'start_btn_color' => array(
 		'type' => 'string',
@@ -62,4 +62,5 @@ $attributes = array_merge(
 	Border::get_attribute( 'enroll_btn_border', true ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

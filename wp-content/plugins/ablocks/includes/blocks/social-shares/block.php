@@ -84,25 +84,37 @@ class Block extends BlockBaseAbstract {
 
 	public function get_share_css( $attributes, $device = '' ) {
 		$css = [];
-
 		if ( isset( $attributes['spaceBetween'][ 'value' . $device ] ) && ! empty( $attributes['spaceBetween'][ 'value' . $device ] ) ) {
 			$css['gap'] = $attributes['spaceBetween'][ 'value' . $device ] . 'px';
 		}
 
-		$stack = $attributes['stack'] ?? '';
-		if ( $stack === 'vertical' && ! empty( $attributes['verticalAlignment'] ) ) {
-			$css['align-items'] = $attributes['verticalAlignment'];
+		$stack = $attributes[ 'stack' . $device ] ?? $attributes['stack'] ?? '';
+		if ( $stack === 'vertical' ) {
+			$css['flex-direction'] = 'column';
+			if ( ! empty( $attributes[ 'verticalAlignment' . $device ] ) ) {
+				$css['align-items'] = $attributes[ 'verticalAlignment' . $device ];
+			}
 		} elseif ( $stack === 'horizontal' ) {
 			$css['flex-direction'] = 'row';
-			if ( ! empty( $attributes['horizontalAlignment'] ) ) {
-				$css['justify-content'] = $attributes['horizontalAlignment'];
+			$horizontal_alignment = $attributes[ 'horizontalAlignment' . $device ] ?? $attributes['horizontalAlignment'] ?? '';
+			if ( ! empty( $horizontal_alignment ) ) {
+				$css['justify-content'] = $horizontal_alignment;
 			}
 		}
-		return array_merge(
-			$css,
-			isset( $attributes['width'] ) ? Width::get_css( $attributes['width'], 'width', $device ) : []
-		);
+		$alignment_css = isset( $attributes['horizontalAlignment'] )
+			? Alignment::get_css( $attributes['horizontalAlignment'], 'justify-content', $device )
+			: [];
+		$css = array_merge( $css, $alignment_css );
+
+		foreach ( $css as $property => $value ) {
+			if ( ! is_string( $value ) || empty( $value ) ) {
+				unset( $css[ $property ] );
+			}
+		}
+		return $css;
 	}
+
+
 	public function get_social_share_bar_css( $attributes, $device = '' ) {
 		$css = [
 			'background' => $attributes['buttonBackground'],

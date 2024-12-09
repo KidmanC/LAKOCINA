@@ -1,7 +1,12 @@
 <?php
 use ABlocks\Controls\Range;
 
-$attributes = [];
+$attributes = [
+	'block_id' => [
+		'type' => 'string',
+		'default' => '',
+	],
+];
 
 return array_merge(
 	$attributes,
@@ -25,6 +30,6 @@ return array_merge(
 		'attributeName' => 'positionY',
 		'attributeObjectKey' => 'value',
 		'isResponsive' => true,
-		'defaultValue' => 0,
+		'defaultValue' => 100,
 	])
 );

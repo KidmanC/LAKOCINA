@@ -110,13 +110,17 @@ class Block extends BlockBaseAbstract {
 		if ( ! empty( $attributes['headerTextColor'] ) ) {
 			$css['color'] = $attributes['headerTextColor'];
 		}
+		$typography_css = Typography::get_css( $attributes['headerTypography'], '', $device );
+		$textShadowCss = TextShadow::get_css( $attributes['headerTextShadow'], '', $device );
+		$textStrokeCss = TextStroke::get_css( $attributes['headerTextStroke'], '', $device );
 		return array_merge(
 			$css,
-			Typography::get_css( $attributes['headerTypography'], $device ),
-			TextShadow::get_css( $attributes['headerTextShadow'], $device ),
-			TextStroke::get_css( $attributes['headerTextStroke'], $device ),
+			$typography_css,
+			$textShadowCss,
+			$textStrokeCss
 		);
 	}
+
 	public function get_title_hover_css( $attributes, $device = '' ) {
 		$css = [];
 		if ( ! empty( $attributes['headerTextColorH'] ) ) {

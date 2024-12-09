@@ -30,18 +30,17 @@ class Block extends BlockBaseAbstract {
 		);
 		return $css_generator->generate_css();
 	}
-
 	public function get_cell_css( $attributes, $device = '' ) {
 		$css = [];
 		if ( ! empty( $attributes['cellColor'] ) ) {
 			$css['background'] = $attributes['cellColor'];
 		}
-		if ( isset( $attributes['textAlignment'] ) ) {
-			$css['text-align'] = $attributes['textAlignment'];
-		}
-
-		return $css;
+		return array_merge(
+			Alignment::get_css( $attributes['textAlignment'], 'justify-content', $device ),
+			$css
+		);
 	}
+
 	public function get_cell_hover_css( $attributes, $device = '' ) {
 		$css = [];
 		if ( ! empty( $attributes['cellColorH'] ) ) {

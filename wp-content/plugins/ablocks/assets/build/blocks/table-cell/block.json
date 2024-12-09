@@ -6,7 +6,7 @@
   "title": "table-cell",
   "category": "ablocks",
   "description": "Create a fully customizable, responsive table. Supports multiple rows and columns",
-  "example": {},
+  "example": [],
   "parent": [
     "ablocks/table"
   ],
@@ -17,5 +17,39 @@
   "textdomain": "ablocks",
   "editorStyle": [
     "file:./style.css"
-  ]
+  ],
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "default": ""
+    },
+    "tagName": {
+      "type": "string",
+      "default": "td"
+    },
+    "cellColor": {
+      "type": "string",
+      "default": ""
+    },
+    "cellColorH": {
+      "type": "string",
+      "default": ""
+    },
+    "rowSpan": {
+      "type": "string",
+      "default": "1"
+    },
+    "colSpan": {
+      "type": "string",
+      "default": "1"
+    },
+    "textAlignment": {
+      "type": "object",
+      "default": {
+        "value": "left",
+        "valueTablet": "",
+        "valueMobile": ""
+      }
+    }
+  }
 }

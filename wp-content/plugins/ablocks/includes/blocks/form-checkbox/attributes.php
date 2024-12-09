@@ -27,7 +27,7 @@ $attributes = [
 	],
 	'name' => [
 		'type' => 'string',
-		'default' => 'Message'
+		'default' => ''
 	],
 	'isRequired' => [
 		'type' => 'boolean',
@@ -47,4 +47,5 @@ $attributes = array_merge(
 	$attributes,
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

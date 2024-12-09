@@ -20,7 +20,7 @@ $attributes = [
 	],
 	'variationSelected' => [
 		'type' => 'boolean',
-		'default' => true,
+		'default' => false,
 	],
 	'containerWidthType' => [
 		'type' => 'string',
@@ -121,4 +121,4 @@ $attributes = array_merge(
 	BackgroundOverlay::get_attribute( '_backgroundOverlay', true ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );

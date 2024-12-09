@@ -70,7 +70,7 @@ $attributes = array_merge(
 		'isResponsive' => false,
 		'defaultValue' => 0,
 	]),
-	Icon::get_attribute( '', false, 'icon', [ 'size' => '20' ] ),
+	Icon::get_attribute( 'icon', [ 'size' => '20' ] ),
 	Alignment::get_attribute( 'position', true, [ 'value' => 'left' ] ),
 	Typography::get_attribute( 'couponTypography', true ),
 	TextShadow::get_attribute( 'couponTextShadow' ),
@@ -83,4 +83,5 @@ $attributes = array_merge(
 	$attributes
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

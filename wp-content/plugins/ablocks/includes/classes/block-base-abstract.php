@@ -39,15 +39,13 @@ abstract class BlockBaseAbstract {
 		$block_path = ABLOCKS_ASSETS_PATH . 'build/blocks/' . $this->block_name . '/block.json';
 		// Register the block with the merged attributes and render callback
 		register_block_type( $block_path, array(
-			'attributes' => $this->get_attributes(),
 			'render_callback' => array( $this, 'render_callback' ),
 		) );
 	}
 
 	public function get_attributes() {
 		$block_attributes = include ABLOCKS_BLOCKS_DIR_PATH . $this->block_name . '/attributes.php';
-		$global_attributes = BlockGlobal::get_attributes();
-		return apply_filters( 'ablocks/register_block_attributes', array_merge( $block_attributes, $global_attributes ), $this->block_name, $this->parent_block_name );
+		return apply_filters( 'ablocks/register_block_attributes', $block_attributes, $this->block_name, $this->parent_block_name );
 	}
 
 	private function get_block_class( $css_class ) {

@@ -6,6 +6,10 @@ ul {
   padding: 0;                 /* Reset padding */
   unicode-bidi: initial;      /* Reset unicode-bidi property */
 }
+.ablocks-block--search-form {
+  margin: 0;
+
+}
 
 .ablocks-block--search-bar {
   display: flex;

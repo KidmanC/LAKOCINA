@@ -15,11 +15,11 @@ class Migration {
 	}
 
 	public function run_migration() {
-		$academy_version = get_option( 'academy_version' );
+		$ablocks_version = get_option( 'ablocks_version' );
 		// Save Version Number, flash role management and save permalink
-		if ( ABLOCKS_VERSION !== $academy_version ) {
+		if ( ABLOCKS_VERSION !== $ablocks_version ) {
 			Settings::save_settings();
-			update_option( 'academy_version', ABLOCKS_VERSION );
+			update_option( 'ablocks_version', ABLOCKS_VERSION );
 		}
 	}
 }

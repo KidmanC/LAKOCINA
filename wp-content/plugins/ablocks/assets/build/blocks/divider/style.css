@@ -1,5 +1,5 @@
 .ablocks-block--divider {
-	width: 100%;
+    width: 100%;
     flex-grow: 1;
 }
 .ablocks-block--divider .ablocks-block-container{
@@ -113,8 +113,8 @@
 
 /* Divider Patterns-css */
 .ablocks-divider__pattern-css {
-    border-block-start: var(--ablocks-divider-pattern-weight) var(--ablocks-divider-pattern-style) var(--ablocks-divider-pattern-color);
     width: 100%;
+    border-block-start: var(--ablocks-divider-pattern-weight) var(--ablocks-divider-pattern-style) var(--ablocks-divider-pattern-color);
 }
 
 

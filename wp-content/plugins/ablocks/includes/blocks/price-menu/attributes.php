@@ -114,7 +114,7 @@ $attributes = array_merge(
 	Typography::get_attribute( 'priceTypography', true ),
 	TextShadow::get_attribute( 'priceTextShadow' ),
 	TextStroke::get_attribute( 'priceTextStroke', true ),
-	Icon::get_attribute( '', false, 'icon' ),
+	Icon::get_attribute( 'icon' ),
 	Typography::get_attribute( 'elementTextTypography', true ),
 	TextStroke::get_attribute( 'elementTextStroke', true ),
 	Alignment::get_attribute( 'alignment', true, [ 'value' => 'flex-start' ] ),
@@ -169,4 +169,5 @@ $attributes = array_merge(
 	] ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

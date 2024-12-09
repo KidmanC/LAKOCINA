@@ -46,6 +46,16 @@ $attributes = [
 			],
 		]
 	],
+	'des' => [
+		'type' => 'string',
+		'source' => 'html',
+		'selector' => '.ablocks-info-box-text',
+		'default' => 'Showcase details with style and precision! Customize captivating visuals and text for an engaging, attention-grabbing display!',
+	],
+	'allowBadgeHover' => [
+		'type' => 'boolean',
+		'default' => false,
+	],
 	'stack' => [
 		'type' => 'string',
 		'default' => 'column',
@@ -181,6 +191,10 @@ $attributes = [
 		'type'          => 'string',
 		'default'       => '#0f2aff',
 	],
+	'desGraphSize' => [
+		'type' => 'string',
+		'default' => 'sm',
+	],
 	'desSize'     => [
 		'type'          => 'string',
 		'default'       => 'sm',
@@ -213,6 +227,10 @@ $attributes = [
 	'ratingUnmarkedColor'  => [
 		'type'         => 'string',
 		'default'      => '#696969'
+	],
+	'ratingTransition' => [
+		'type' => 'number',
+		'default' => '',
 	],
 	'ratingUnmarkedColorHover'  => [
 		'type'         => 'string',
@@ -271,6 +289,10 @@ $attributes = [
 		'type' => 'number',
 		'default' => 10,
 	],
+	'btnShowIcon' => [
+		'type' => 'boolean',
+		'default' => true
+	],
 ];
 
 $attributes = array_merge(
@@ -288,9 +310,11 @@ $attributes = array_merge(
 	Alignment::get_attribute( 'badgePosition', true, [ 'value' => 'top-right' ] ),
 	Alignment::get_attribute( 'badgeAlignment', true, [ 'value' => 'center' ] ),
 	// icon starts
-	Icon::get_attribute( '', false, 'icon', [
-		'color' => '#000000'
+	Icon::get_attribute('icon', [
+		'color' => '#000000',
+		'hasNoSelectorOrSource' => true
 	] ),
+	Link::get_attribute( 'iconLink' ),
 	Alignment::get_attribute( 'iconAlignment', true ),
 	// heading starts
 	Typography::get_attribute( 'headingTypography', true, [
@@ -317,12 +341,13 @@ $attributes = array_merge(
 	TextShadow::get_attribute( 'desTextShadow' ),
 	TextStroke::get_attribute( 'desTextStroke', true ),
 	// button starts
-	Icon::get_attribute( 'btnIcon', false, 'btnIcon', [
+	Icon::get_attribute('btnIcon', [
 		'size' => 20,
 		'color' => '#FAFAFA',
 		'path' => 'M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z',
 		'viewBox' => '0 0 448 512',
 		'className' => 'fas fa-arrow-right',
+		'hasNoSelectorOrSource' => true,
 	] ),
 	Link::get_attribute( 'btnLink' ),
 	Border::get_attribute( 'btnBorder', true ),
@@ -330,13 +355,13 @@ $attributes = array_merge(
 	Typography::get_attribute( 'btnTypography', true ),
 	TextShadow::get_attribute( 'btnTextShadow' ),
 	Alignment::get_attribute( 'btnAlignment', true, [ 'value' => 'center' ] ),
-	Helper::get_icon_picker_attribute( 'btnIcon', [ 'className' => '' ] ),
 	// star rating starts
 	Typography::get_attribute( 'ratingNumberTypography', true ),
-	Icon::get_attribute( 'starIcon', false, 'starIcon', [
+	Icon::get_attribute( 'starIcon', [
 		'path' => 'M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z',
 		'viewBox' => '0 0 576 512',
 		'className' => 'far fa-star',
+		'hasNoSelectorOrSource' => true,
 	] ),
 	Range::get_attribute( [
 		'attributeName' => 'rating',
@@ -377,6 +402,6 @@ $attributes = array_merge(
 	]),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
 
 

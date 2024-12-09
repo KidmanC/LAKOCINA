@@ -29,6 +29,10 @@ $attributes = [
 		'type' => 'string',
 		'default' => ''
 	],
+	'formType' => [
+		'type' => 'string',
+		'default' => ''
+	],
 	'errorMsg' => [
 		'type' => 'string',
 		'default' => 'This field is required',
@@ -43,13 +47,17 @@ $attributes = [
 	],
 	'inputType' => [
 		'type' => 'string',
-		'default' => 'text'
+		'default' => ''
 	],
 	'emailType' => [
 		'type' => 'string',
 		'default' => 'email'
 	],
 	'isRequired' => [
+		'type' => 'boolean',
+		'default' => true
+	],
+	'nameChangeable' => [
 		'type' => 'boolean',
 		'default' => true
 	],
@@ -66,14 +74,10 @@ $attributes = [
 $attributes = array_merge(
 	$attributes,
 	Border::get_attribute( 'border', true ),
-	Icon::get_attribute( '', false ),
-	Icon::get_attribute( 'passwordShow', false ),
-	Icon::get_attribute( 'passwordHide', false ),
-	Range::get_attribute( [
-		'attributeName' => 'passwordShowHideIconSize',
-		'isResponsive' => false,
-		'defaultValue' => 12,
-	] ),
+	Icon::get_attribute('icon',[
+		"size"=>28,
+	]
+	),
 	Range::get_attribute( [
 		'attributeName' => 'inputIconSize',
 		'isResponsive' => false,
@@ -86,4 +90,5 @@ $attributes = array_merge(
 	] ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

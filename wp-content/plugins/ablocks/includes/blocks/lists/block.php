@@ -88,27 +88,43 @@ class Block extends BlockBaseAbstract {
 
 	public function get_list_css( $attributes, $device = '' ) {
 		$css = [];
-		$stack = isset( $attributes['stack'] ) ? $attributes['stack'] : '';
-		$width = isset( $attributes['width'] ) ? $attributes['width'] : '';
+
 		if ( isset( $attributes['spaceBetween'][ 'value' . $device ] ) && ! empty( $attributes['spaceBetween'][ 'value' . $device ] ) ) {
 			$css['gap'] = $attributes['spaceBetween'][ 'value' . $device ] . 'px';
 		}
 
-		if ( $stack === 'vertical' && ! empty( $attributes['verticalAlignment'] ) ) {
-			$css['align-items'] = $attributes['verticalAlignment'];
-		}
-
-		if ( $stack === 'horizontal' ) {
+		$stack = $attributes[ 'stack' . $device ] ?? $attributes['stack'] ?? '';
+		if ( $stack === 'vertical' ) {
+			$css['flex-direction'] = 'column';
+			$vertical_alignment = $attributes[ 'verticalAlignment' . $device ] ?? $attributes['verticalAlignment'] ?? '';
+			if ( ! empty( $vertical_alignment ) ) {
+				$css['align-items'] = $vertical_alignment;
+			}
+		} elseif ( $stack === 'horizontal' ) {
 			$css['flex-direction'] = 'row';
-			if ( ! empty( $attributes['horizontalAlignment'] ) ) {
-				$css['justify-content'] = $attributes['horizontalAlignment'];
+			$horizontal_alignment = $attributes[ 'horizontalAlignment' . $device ] ?? $attributes['horizontalAlignment'] ?? '';
+			if ( ! empty( $horizontal_alignment ) ) {
+				$css['justify-content'] = $horizontal_alignment;
 			}
 		}
 
-		return array_merge(
+		$width_css = isset( $attributes[ 'width' . $device ] )
+			? Width::get_css( $attributes[ 'width' . $device ], 'width', $device )
+			: [];
+
+		$css = array_merge(
 			$css,
-			Width::get_css( $width, 'width', $device ),
+			$width_css,
+			isset( $attributes['horizontalAlignment'] )
+				? Alignment::get_css( $attributes['horizontalAlignment'], 'justify-content', $device )
+				: []
 		);
+		foreach ( $css as $property => $value ) {
+			if ( is_array( $value ) ) {
+				unset( $css[ $property ] );
+			}
+		}
+		return $css;
 	}
 
 	public function get_list_wrapper_css( $attributes, $device = '' ) {

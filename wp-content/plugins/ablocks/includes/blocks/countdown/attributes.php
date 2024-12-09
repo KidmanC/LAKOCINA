@@ -7,6 +7,7 @@ use ABlocks\Controls\Alignment;
 use ABlocks\Controls\Range;
 use ABlocks\Controls\Typography;
 use ABlocks\Controls\BoxShadow;
+use ABlocks\Controls\Border;
 
 
 $attributes = [
@@ -176,6 +177,7 @@ $attributes = [
 $attributes = array_merge(
 	Alignment::get_attribute( 'alignment', true, [ 'value' => 'center' ] ),
 	BoxShadow::get_attribute( 'boxShadow', true ),
+	Border::get_attribute( 'boxBorder', true ),
 	Typography::get_attribute( 'actionMessageTypography', true ),
 	Typography::get_attribute( 'labelTypography', true ),
 	Typography::get_attribute( 'numberTypography', true ),
@@ -215,4 +217,5 @@ $attributes = array_merge(
 	$attributes
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

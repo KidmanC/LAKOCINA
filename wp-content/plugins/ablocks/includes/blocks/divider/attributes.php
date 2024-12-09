@@ -54,7 +54,7 @@ $attributes = array_merge(
 	Typography::get_attribute( 'elementTextTypography', true ),
 	TextStroke::get_attribute( 'elementTextStroke', true ),
 	Alignment::get_attribute( 'alignment', true, [ 'value' => 'left' ] ),
-	Icon::get_attribute( '', false ),
+	Icon::get_attribute(),
 	Range::get_attribute( [
 		'attributeName' => 'width',
 		'attributeObjectKey' => 'value',
@@ -106,4 +106,5 @@ $attributes = array_merge(
 	$attributes
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

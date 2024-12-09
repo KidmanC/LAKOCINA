@@ -56,6 +56,10 @@ $attributes = [
 		'type' => 'string',
 		'default' => ''
 	],
+	'sideBarMenuDevice' => [
+		'type' => 'string',
+		'default' => 'mobile'
+	],
 
 ];
 
@@ -79,4 +83,5 @@ $attributes = array_merge(
 		'defaultValue' => '30',
 	]),
 );
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

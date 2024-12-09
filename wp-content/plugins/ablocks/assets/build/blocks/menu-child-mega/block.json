@@ -10,7 +10,7 @@
   "category": "ablocks",
   "icon": "smiley",
   "description": "Show Submenu",
-  "example": {},
+  "example": [],
   "supports": {
     "html": false,
     "anchor": true
@@ -19,5 +19,38 @@
   "style": [
     "file:./style.css"
   ],
-  "viewScript": "file:./view.js"
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "default": ""
+    },
+    "width": {
+      "type": "object",
+      "default": {
+        "value": 100,
+        "valueTablet": 100,
+        "valueMobile": 100,
+        "valueUnit": "%",
+        "valueUnitTablet": "",
+        "valueUnitMobile": ""
+      }
+    },
+    "positionX": {
+      "type": "object",
+      "default": {
+        "value": 0,
+        "valueTablet": "",
+        "valueMobile": ""
+      }
+    },
+    "positionY": {
+      "type": "object",
+      "default": {
+        "value": 100,
+        "valueTablet": "",
+        "valueMobile": ""
+      }
+    }
+  }
 }

@@ -70,7 +70,49 @@ class Range extends ControlBaseAbstractTwo {
 			]
 		];
 	}
-	public static function get_css( $attribute_value, $property = '', $device = '' ) {
 
+	public static function get_css( $args ) {
+		if ( ! isset( $args['property'] ) ||
+			empty( $args['property'] )
+		) {
+			return [];
+		}
+
+		// Set default values for missing arguments
+		$args = wp_parse_args( $args, [
+			'attributeValue'      => '',
+			'isResponsive'        => false,
+			'defaultValue'        => '',
+			'defaultValueTablet'  => '',
+			'defaultValueMobile'  => '',
+			'hasUnit'             => false,
+			'unitDefaultValue'    => 'px',
+			'attributeObjectKey'  => 'value',
+			'device'              => '',
+		]);
+
+		$value = $args['attributeValue'];
+		$css = [];
+
+		if ( ! $args['isResponsive'] && ! $args['hasUnit'] ) {
+			$css[ $args['property'] ] = $value . $args['unitDefaultValue'];
+			return $css;
+		}
+
+		// Check and generate CSS for the specified device
+		$deviceValueKey = $args['attributeObjectKey'] . $args['device'];
+		if ( ! empty( $value[ $deviceValueKey ] ) ) {
+			$unit = self::get_unit( [
+				'attributeValue'      => $value,
+				'attributeObjectKey'  => $args['attributeObjectKey'],
+				'unitDefaultValue'    => $args['unitDefaultValue'],
+				'device'              => $args['device'],
+			] );
+
+			$css[ $args['property'] ] = $value[ $deviceValueKey ] . $unit;
+		}
+
+		return $css;
 	}
+
 }

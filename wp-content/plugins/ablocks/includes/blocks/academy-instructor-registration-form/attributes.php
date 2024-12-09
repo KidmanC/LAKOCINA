@@ -65,4 +65,5 @@ $attributes = array_merge(
 	Dimensions::get_attribute( 'card_hover_margin', true ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

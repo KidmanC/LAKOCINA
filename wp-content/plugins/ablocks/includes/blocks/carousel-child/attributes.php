@@ -1,6 +1,5 @@
 <?php
 
-use ABlocks\Controls\Alignment;
 
 $attributes = [
 	'block_id'          => [
@@ -9,4 +8,5 @@ $attributes = [
 	],
 ];
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

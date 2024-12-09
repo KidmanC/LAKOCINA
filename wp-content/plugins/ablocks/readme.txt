@@ -4,7 +4,7 @@ Tags: block, blocks, editor, gutenberg, gutenberg blocks
 Requires at least: 5.4
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.5.7
+Stable tag: 1.5.8
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -139,6 +139,17 @@ Yes, each block in aBlocks offers extensive customization options. You can adjus
 8. Instant Style Copy-Paste
 
 == Changelog ==
+
+= 1.5.8 - 06/12/2024 =
+* Update - Revamped block attribute maintaining
+* Fixed - Divider Block issue
+* Fixed - Price Menu Divider issue
+* Fixed - Unit control hide issue for responsive
+* Fixed - List Block alignment issue
+* Fixed - Social Share Block alignment issue
+* Fixed - Typography Reset not working issue
+* Fixed - Dual Button CSS issue
+* Fixed - Advance Position issue
 
 = 1.5.7 - 30/11/2024 =
 * Added - CSSFilter Responsive control

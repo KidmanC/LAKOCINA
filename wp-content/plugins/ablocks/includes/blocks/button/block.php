@@ -110,10 +110,6 @@ class Block extends BlockBaseAbstract {
 			$css['width'] = '100%';
 		}
 
-		if ( ! empty( $attributes['transition'] ) ) {
-			$css['transition-duration'] = $attributes['transition'] . 's';
-		}
-
 		$defaultUnit = 'px';
 
 			$unit = ! empty( $attributes['iconSpace'][ 'valueUnit' . $device ] ) ? $attributes['iconSpace'][ 'valueUnit' . $device ] : $defaultUnit;
@@ -142,6 +138,9 @@ class Block extends BlockBaseAbstract {
 			$css['background'] = $attributes['backgroundH'];
 		}
 
+		if ( ! empty( $attributes['transition'] ) ) {
+			$css['transition-duration'] = $attributes['transition'] . 's';
+		}
 		return array_merge(
 			$css,
 			Border::get_hover_css( $attributes['border'], '', $device ),

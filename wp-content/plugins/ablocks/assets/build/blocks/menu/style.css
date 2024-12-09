@@ -19,11 +19,18 @@
   padding: 0;
   list-style: none;
 }
-
+.ablocks-block--menu .ablocks-block-container > .ablocks-menu > .ablocks-main-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 .ablocks-menu__trigger{
   display: none;
 }
-.ablocks-menu-item.has-mega-menu {
+.ablocks-menu-item.ablocks-has-sub-menu { 
+  position: relative;
+}
+.ablocks-menu-item.ablocks-has-mega-menu {
   position: static !important;
 }
 .ablocks-main-menu > .ablocks-menu-item {

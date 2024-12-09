@@ -3,7 +3,6 @@
 use ABlocks\Controls\Alignment;
 use ABlocks\Controls\Dimensions;
 use ABlocks\Controls\Typography;
-use ABlocks\Controls\Width;
 use ABlocks\Controls\Border;
 use ABlocks\Controls\Range;
 if ( ! defined( 'ABSPATH' ) ) {
@@ -23,14 +22,6 @@ $attributes = [
 		'type' => 'string',
 		'default' => ''
 	],
-	'markerSize' => [
-		'type' => 'object',
-		'default' => [
-			'value' => 10,
-			'valueTablet' => 10,
-			'valueMobile' => 10
-		]
-	],
 	'emoji' => [
 		'type' => 'string',
 		'default' => '✍',
@@ -42,38 +33,33 @@ $attributes = [
 	'lists' => [
 		'type' => 'array',
 		'default' => [
-			'id' => 0,
-			'text' => 'Automatic dimming at night',
-			'icon' => 'far fa-smile-beam',
-			'link' => [
-				'isLink' => false,
-				'link' => '',
-				'target' => '_',
-			],
-			'isOpen' => false,
-		],
-		[
-			'id' => 1,
-			'text' => '500 lumens of brightness',
-			'icon' => 'far fa-calendar',
-			'link' => [
-				'isLink' => false,
-				'link' => '',
-				'target' => '_',
-			],
-			'isOpen' => false,
-		],
-		[
-			'id' => 2,
-			'text' => 'Extremely energy efficient',
-			'icon' => 'far fa-edit',
-			'link' => [
-				'isLink' => true,
-				'link' => 'https://www.google.com/',
-				'target' => '_',
-			],
-			'isOpen' => false,
-		],
+			[
+				'id' => 0,
+				'text' => '',
+				'link' => [
+					'linkDestination' => '',
+					'href' => '',
+					'lightbox' => '',
+					'linkTarget' => '',
+					'rel' => '',
+					'noFollow' => '',
+					'keyValue' => '',
+					'linkClass' => '',
+				],
+				'iconColor' => '',
+				'textColor' => '',
+				'makerColor' => '',
+				'isOpen' => false,
+			]
+		]
+	],
+	'listIconsClasses' => [
+		'type' => 'array',
+		'default' => [],
+	],
+	'listIcons' => [
+		'type' => 'array',
+		'default' => []
 	],
 	'iconType' => [
 		'type' => 'string',
@@ -83,12 +69,6 @@ $attributes = [
 		'type' => 'string',
 		'default' => 'circle',
 	],
-	'iconSize' => [
-		'type' => 'object',
-		'default' => [
-			'value' => 20,
-		],
-	],
 	'iconBackground' => [
 		'type' => 'boolean',
 		'default' => false,
@@ -97,6 +77,10 @@ $attributes = [
 		'type' => 'string',
 		'default' => '',
 	],
+	'textColor' => [
+		'type' => 'string',
+		'default' => '#000000',
+	],
 	'stack' => [
 		'type' => 'string',
 		'default' => 'vertical',
@@ -104,10 +88,6 @@ $attributes = [
 	'belowItem' => [
 		'type' => 'number',
 		'default' => 0,
-	],
-	'horizontalAlignment' => [
-		'type' => 'string',
-		'default' => 'start',
 	],
 	'verticalAlignment' => [
 		'type' => 'string',
@@ -130,7 +110,7 @@ $attributes = [
 $attributes = array_merge(
 	$attributes,
 	Alignment::get_attribute( 'position', true, [ 'value' => 'center' ] ),
-	Width::get_attribute( 'width', false ),
+	Alignment::get_attribute( 'horizontalAlignment', true, [ 'value' => 'flex-start' ] ),
 	Dimensions::get_attribute( 'padding', false ),
 	Border::get_attribute( 'border', true ),
 	Typography::get_attribute( 'typography', true ),
@@ -141,6 +121,13 @@ $attributes = array_merge(
 		'defaultValue' => 20,
 		'hasUnit' => true,
 		'unitDefaultValue' => 'px',
+	]),
+	Range::get_attribute([
+		'attributeName' => 'markerSize',
+		'attributeObjectKey' => 'value',
+		'defaultValue' => 10,
+		'defaultValueTablet' => 10,
+		'defaultValueMobile' => 10,
 	]),
 	Range::get_attribute([
 		'attributeName' => 'textIndent',
@@ -164,20 +151,21 @@ $attributes = array_merge(
 		'attributeObjectKey' => 'value',
 		'isResponsive' => true,
 		'defaultValue' => 100,
-		'defaultValueTablet' => 100,
-		'defaultValueMobile' => 100,
+		'defaultValueTablet' => 30,
+		'defaultValueMobile' => 20,
 		'hasUnit' => true,
-		'unitDefaultValue' => '%',
+		'unitDefaultValue' => 'px',
 	]),
 	Range::get_attribute([
 		'attributeName' => 'weight',
 		'attributeObjectKey' => 'value',
 		'isResponsive' => true,
-		'defaultValue' => 1,
-		'defaultValueTablet' => 1,
+		'defaultValue' => 5,
+		'defaultValueTablet' => 2,
 		'defaultValueMobile' => 1,
 		'hasUnit' => true,
 		'unitDefaultValue' => 'px',
 	]),
 );
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

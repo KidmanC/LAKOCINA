@@ -40,7 +40,7 @@ $attributes = [
 	],
 	'isShowPercentage' => [
 		'type' => 'boolean',
-		'default' => false,
+		'default' => true,
 	],
 	'direction' => [
 		'type' => 'string',
@@ -107,5 +107,6 @@ $attributes = array_merge(
 	] ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+
 

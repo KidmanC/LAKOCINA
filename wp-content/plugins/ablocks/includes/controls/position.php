@@ -72,22 +72,25 @@ class Position extends ControlBaseAbstract {
 			$device
 		);
 
-		if ( $value[ 'positionType' . $device ] ) {
-			$css[ $property ] = $value[ 'positionType' . $device ];
+		if ( ! empty( $value['positionType'] ) ) {
+			$css[ $property ] = $value['positionType'];
 		}
-		if ( $value[ 'positionType' . $device ] === 'absolute' || $value[ 'positionType' . $device ] === 'fixed' ) {
-			if ( $value['hOrientation'] . $device === 'right' ) {
+
+		$is_absolute_or_fixed = $value['positionType'] === 'absolute' || $value['positionType'] === 'fixed';
+
+		if ( $is_absolute_or_fixed ) {
+			if ( ! empty( $value[ 'hOrientation' . $device ] ) && $value[ 'hOrientation' . $device ] === 'right' ) {
 				$css['right'] = $value[ 'hOffset' . $device ] . $h_offset_unit;
 				unset( $css['left'] );
-			} elseif ( $value[ 'hOffset' . $device ] ) {
+			} elseif ( ! empty( $value[ 'hOffset' . $device ] ) ) {
 				$css['left'] = $value[ 'hOffset' . $device ] . $h_offset_unit;
 				unset( $css['right'] );
 			}
 
-			if ( $value[ 'vOrientation' . $device ] === 'bottom' ) {
+			if ( ! empty( $value[ 'vOrientation' . $device ] ) && $value[ 'vOrientation' . $device ] === 'bottom' ) {
 				$css['bottom'] = $value[ 'vOffset' . $device ] . $v_offset_unit;
 				unset( $css['top'] );
-			} elseif ( $value[ 'vOffset' . $device ] ) {
+			} elseif ( ! empty( $value[ 'vOffset' . $device ] ) ) {
 				$css['top'] = $value[ 'vOffset' . $device ] . $v_offset_unit;
 				unset( $css['bottom'] );
 			}

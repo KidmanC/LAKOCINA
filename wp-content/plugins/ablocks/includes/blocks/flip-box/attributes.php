@@ -36,4 +36,5 @@ $attributes = array_merge(
 	Dimensions::get_attribute( 'backPadding', true ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

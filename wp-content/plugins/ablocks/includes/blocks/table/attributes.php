@@ -8,6 +8,18 @@ $attributes = [
 	'block_id' => [
 		'type' => 'string',
 	],
+	'tableCreated' => [
+		'type' => 'boolean',
+		'default' => false,
+	],
+	'isHeader' => [
+		'type' => 'boolean',
+		'default' => '',
+	],
+	'isFooter' => [
+		'type' => 'boolean',
+		'default' => '',
+	],
 	'rowOddColor' => [
 		'type' => 'string',
 		'default' => ''
@@ -58,4 +70,5 @@ $attributes = array_merge(
 	Border::get_attribute( 'border', true ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

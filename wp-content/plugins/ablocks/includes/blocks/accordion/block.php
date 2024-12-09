@@ -120,11 +120,12 @@ class Block extends BlockBaseAbstract {
 		if ( ! empty( $attributes['headerTextColor'] ) ) {
 			$css['color'] = $attributes['headerTextColor'];
 		}
+
 		return array_merge(
 			$css,
-			isset( $attributes['headerTypography'] ) ? Typography::get_css( $attributes['headerTypography'], $device ) : [],
-			isset( $attributes['headerTextShadow'] ) ? TextShadow::get_css( $attributes['headerTextShadow'], $device ) : [],
-			isset( $attributes['headerTextStroke'] ) ? TextStroke::get_css( $attributes['headerTextStroke'], $device ) : [],
+			Typography::get_css( $attributes['headerTypography'], '', $device ),
+			TextShadow::get_css( $attributes['headerTextShadow'], '', $device ),
+			TextStroke::get_css( $attributes['headerTextStroke'], '', $device )
 		);
 	}
 	public function get_title_hover_css( $attributes, $device = '' ) {

@@ -52,36 +52,37 @@ $attributes = [
 		'type' => 'number',
 		'default' => '',
 	],
+	'showIcon' => [
+		'type' => 'boolean',
+		'default' => false,
+	],
 	'iconPosition' => [
 		'type' => 'string',
 		'default' => 'left',
 	],
-
 ];
 
 
 $attributes = array_merge(
 	$attributes,
-	Icon::get_attribute( '', false, 'icon', [ 'size' => '16' ] ),
+	Icon::get_attribute( 'icon', [ 'size' => '16' ] ),
 	Link::get_attribute( 'link' ),
 	Border::get_attribute( 'border', true ),
 	Dimensions::get_attribute( 'padding', true ),
 	Typography::get_attribute( 'typography', true ),
 	TextShadow::get_attribute( 'textShadow' ),
+	Alignment::get_attribute( 'position', true, [ 'value' => 'left' ] ),
 	Alignment::get_attribute( 'alignment', true, [ 'value' => 'left' ] ),
-	Helper::get_icon_picker_attribute( 'icon', [ 'className' => '' ] ),
-	BoxShadow::get_attribute( '_boxShadow', true ),
 	BoxShadow::get_attribute( 'boxShadow', true ),
 	Range::get_attribute([
 		'attributeName' => 'iconSpace',
 		'attributeObjectKey' => 'value',
 		'isResponsive' => true,
 		'defaultValue' => 10,
-		'defaultValueTablet' => 10,
-		'defaultValueMobile' => 10,
 		'hasUnit' => true,
 		'unitDefaultValue' => 'px',
 	]),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

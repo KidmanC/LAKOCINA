@@ -7,7 +7,7 @@
   "category": "ablocks",
   "icon": "smiley",
   "description": "Show Submenu",
-  "example": {},
+  "example": [],
   "parent": [
     "ablocks/menu",
     "ablocks/menu-child-sub"
@@ -20,5 +20,36 @@
   "style": [
     "file:./style.css"
   ],
-  "viewScript": "file:./view.js"
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "default": ""
+    },
+    "label": {
+      "type": "string",
+      "default": "Menu"
+    },
+    "isSubMenu": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasLink": {
+      "type": "boolean",
+      "default": false
+    },
+    "link": {
+      "type": "object",
+      "default": {
+        "linkDestination": "",
+        "href": "",
+        "lightbox": "",
+        "linkTarget": "",
+        "rel": "",
+        "noFollow": "",
+        "keyValue": "",
+        "linkClass": ""
+      }
+    }
+  }
 }

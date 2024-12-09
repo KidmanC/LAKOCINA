@@ -9,6 +9,11 @@ use ABlocks\Controls\Alignment;
 $attributes = [
 	'block_id' => [
 		'type' => 'string',
+		'default' => '',
+	],
+	'tagName' => [
+		'type' => 'string',
+		'default' => 'td'
 	],
 	'cellColor' => [
 		'type' => 'string',
@@ -18,7 +23,14 @@ $attributes = [
 		'type' => 'string',
 		'default' => ''
 	],
-	Alignment::get_attribute( 'textAlignment', true, [ 'value' => 'left' ] ),
+	'rowSpan' => [
+		'type' => 'string',
+		'default' => '1'
+	],
+	'colSpan' => [
+		'type' => 'string',
+		'default' => '1'
+	],
 ];
 
-return $attributes;
+return array_merge( $attributes, Alignment::get_attribute( 'textAlignment', true, [ 'value' => 'left' ] ) );

@@ -27,7 +27,14 @@ $attributes = [
 		'type' => 'string',
 		'default' => 'L',
 	),
-
+	'imageOptions' => array(
+		'type' => 'array',
+		'default' => [],
+	),
+	'isCustomImage' => array(
+		'type' => 'boolean',
+		'default' => false,
+	),
 ];
 
 $attributes = array_merge(
@@ -40,4 +47,4 @@ $attributes = array_merge(
 	]),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );

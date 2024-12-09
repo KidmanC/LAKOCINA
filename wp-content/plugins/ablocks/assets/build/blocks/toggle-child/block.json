@@ -6,7 +6,7 @@
   "title": "Toggle child",
   "category": "ablocks",
   "description": "Easily add conditional content",
-  "example": {},
+  "example": [],
   "supports": {
     "html": true,
     "anchor": true
@@ -22,5 +22,11 @@
   ],
   "editorScript": [
     "ablocks-common-script"
-  ]
+  ],
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "default": ""
+    }
+  }
 }

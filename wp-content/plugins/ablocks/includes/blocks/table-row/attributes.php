@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $attributes = [
 	'block_id' => [
 		'type' => 'string',
+		'default' => '',
 	],
 	'rowColor' => [
 		'type' => 'string',

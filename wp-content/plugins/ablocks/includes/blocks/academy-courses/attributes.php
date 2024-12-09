@@ -133,4 +133,5 @@ $attributes = array_merge(
 	Background::get_attribute( 'wish_icon_background', true )
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

@@ -6,7 +6,7 @@
   "title": "Flip Box child",
   "category": "ablocks",
   "description": "Engaging content flip effect",
-  "example": {},
+  "example": [],
   "supports": {
     "html": true,
     "anchor": true
@@ -14,5 +14,15 @@
   "parent": [
     "ablocks/flip-box"
   ],
-  "textdomain": "ablocks"
+  "textdomain": "ablocks",
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "default": ""
+    },
+    "childId": {
+      "type": "number",
+      "default": 0
+    }
+  }
 }

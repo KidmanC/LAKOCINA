@@ -39,4 +39,5 @@ $attributes = array_merge(
 	TextStroke::get_attribute( 'textStroke', true ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

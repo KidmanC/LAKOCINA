@@ -11,6 +11,7 @@ use ABlocks\Controls\TextStroke;
 use ABlocks\Controls\Border;
 use ABlocks\Controls\Dimensions;
 use ABlocks\Controls\Range;
+use ABlocks\Controls\Icon;
 use ABlocks\Helper;
 $attributes = [
 	'block_id' => array(
@@ -19,7 +20,7 @@ $attributes = [
 	),
 	'allowMultiple' => [
 		'type' => 'boolean',
-		'default' => true,
+		'default' => false,
 	],
 	'initialOpen' => [
 		'type' => 'number',
@@ -27,7 +28,7 @@ $attributes = [
 	],
 	'iconColor' => [
 		'type' => 'string',
-		'default' => '#000000'
+		'default' => '#000000',
 	],
 	'iconColorH' => [
 		'type' => 'string',
@@ -92,14 +93,30 @@ $attributes = array_merge(
 	Dimensions::get_attribute( 'headerPadding', true ),
 	Dimensions::get_attribute( 'bodyPadding', true ),
 	Border::get_attribute( 'headerBorder', true ),
-	Helper::get_icon_picker_attribute( 'leftCloseIcon', [ 'className' => '' ] ),
-	Helper::get_icon_picker_attribute( 'leftActiveIcon', [ 'className' => '' ] ),
-	Helper::get_icon_picker_attribute( 'rightCloseIcon', [
-		'path' => 'M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z',
-		'viewBox' => '0 0 576 512',
-		'className' => 'far fa-star',
+	Icon::get_attribute( 'leftCloseIcon', [
+		'path' => 'M256 504c137 0 248-111 248-248S393 8 256 8 8 119 8 256s111 248 248 248zm0-448c110.5 0 200 89.5 200 200s-89.5 200-200 200S56 366.5 56 256 145.5 56 256 56zm20 328h-40c-6.6 0-12-5.4-12-12V256h-67c-10.7 0-16-12.9-8.5-20.5l99-99c4.7-4.7 12.3-4.7 17 0l99 99c7.6 7.6 2.2 20.5-8.5 20.5h-67v116c0 6.6-5.4 12-12 12z',
+		'viewBox' => '0 0 512 512',
+		'className' => 'far fa-arrow-alt-circle-up',
+		'hasNoSelectorOrSource' => true,
 	] ),
-	Helper::get_icon_picker_attribute( 'rightActiveIcon', [ 'className' => '' ] ),
+	Icon::get_attribute( 'leftActiveIcon', [
+		'path' => 'M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm-32-316v116h-67c-10.7 0-16 12.9-8.5 20.5l99 99c4.7 4.7 12.3 4.7 17 0l99-99c7.6-7.6 2.2-20.5-8.5-20.5h-67V140c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12z',
+		'viewBox' => '0 0 512 512',
+		'className' => 'far fa-arrow-alt-circle-down',
+		'hasNoSelectorOrSource' => true,
+	] ),
+	Icon::get_attribute( 'rightCloseIcon', [
+		'path' => 'M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z',
+		'viewBox' => '0 0 448 512',
+		'className' => 'fas fa-plus',
+		'hasNoSelectorOrSource' => true,
+	] ),
+	Icon::get_attribute( 'rightActiveIcon', [
+		'path' => 'M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z',
+		'viewBox' => '0 0 448 512',
+		'className' => 'fas fa-minus',
+		'hasNoSelectorOrSource' => true,
+	] ),
 	Range::get_attribute( [
 		'attributeName' => 'itemSpace',
 		'isResponsive' => false,
@@ -116,4 +133,5 @@ $attributes = array_merge(
 		'defaultValue' => 10,
 	]),
 );
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

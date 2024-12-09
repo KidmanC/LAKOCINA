@@ -112,4 +112,4 @@ $attributes = array_merge(
 	BoxShadow::get_attribute( 'commonBoxShadow' ),
 );
 
-return $attributes;
+return  array_merge($attributes, \ABlocks\Classes\BlockGlobal::get_attributes());

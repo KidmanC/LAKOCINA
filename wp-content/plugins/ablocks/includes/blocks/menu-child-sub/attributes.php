@@ -83,6 +83,51 @@ $attributes = [
 		'type' => 'number',
 		'default' => 0
 	],
+	'menuItemAlign' => [
+		'type' => 'string',
+		'default' => '',
+		'copyStyle' => true,
+	],
+	'menuItemAlignTablet' => [
+		'type' => 'string',
+		'default' => '',
+		'copyStyle' => true,
+	],
+	'menuItemAlignMobile' => [
+		'type' => 'string',
+		'default' => '',
+		'copyStyle' => true,
+	],
+	'menuItemDirection' => [
+		'type' => 'string',
+		'default' => 'row',
+		'copyStyle' => true,
+	],
+	'menuItemDirectionTablet' => [
+		'type' => 'string',
+		'default' => '',
+		'copyStyle' => true,
+	],
+	'menuItemDirectionMobile' => [
+		'type' => 'string',
+		'default' => '',
+		'copyStyle' => true,
+	],
+	'menuItemJustify' => [
+		'type' => 'string',
+		'default' => 'space-between',
+		'copyStyle' => true,
+	],
+	'menuItemJustifyTablet' => [
+		'type' => 'string',
+		'default' => 'space-between',
+		'copyStyle' => true,
+	],
+	'menuItemJustifyMobile' => [
+		'type' => 'string',
+		'default' => 'space-between',
+		'copyStyle' => true,
+	],
 
 ];
 
@@ -100,8 +145,6 @@ $attributes = array_merge(
 		'attributeObjectKey' => 'value',
 		'isResponsive' => true,
 		'defaultValue' => 250,
-		'defaultValueTablet' => 250,
-		'defaultValueMobile' => 250,
 		'hasUnit' => true,
 		'unitDefaultValue' => 'px',
 	]),

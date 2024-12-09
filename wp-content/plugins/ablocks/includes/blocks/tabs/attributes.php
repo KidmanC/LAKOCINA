@@ -182,7 +182,7 @@ $attributes = array_merge(
 		'hasUnit' => true,
 		'unitDefaultValue' => 'px',
 	] ),
-	Icon::get_attribute( '', false, 'icon' ),
+	Icon::get_attribute( 'icon' ),
 	Dimensions::get_attribute( 'contentMargin', true ),
 	Typography::get_attribute( 'titleTypography', true ),
 	Typography::get_attribute( 'subTitleTypography', true ),
@@ -192,4 +192,5 @@ $attributes = array_merge(
 	Border::get_attribute( 'contentBorder', true ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

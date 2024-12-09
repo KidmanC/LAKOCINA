@@ -97,7 +97,7 @@ class Block extends BlockBaseAbstract {
 	}
 	public function get_container_inner_blocks_row_column_display_css( $attributes, $device = '' ) {
 		$css = [];
-		if ( 'row' === $attributes[ 'direction' . $device ] ) {
+		if ( 'row' === $attributes[ 'direction' . $device ] || 'row-reverse' === $attributes[ 'direction' . $device ] ) {
 			$css['display'] = 'inline-block';
 			$css['width'] = 'auto';
 		}

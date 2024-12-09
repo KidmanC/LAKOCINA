@@ -108,7 +108,7 @@ class Block extends BlockBaseAbstract {
 		$width = isset( $attributes['width'] ) ? $attributes['width'] : array();
 		$key = 'value' . $device;
 		if ( ! empty( $width[ $key ] ) ) {
-			$value_unit = isset( $width['valueUnit'] ) ? $width['valueUnit'] : 'px';
+			$value_unit = isset( $width['valueUnit'] ) ? $width['valueUnit'] : '%';
 			$divider_css['width'] = $width[ $key ] . $value_unit;
 		}
 		return $divider_css;

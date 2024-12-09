@@ -35,7 +35,12 @@ $attributes = [
 	],
 	'radioArr' => [
 		'type' => 'array',
-		'default' => []
+		'default' => [
+			[
+				'id' => 1,
+				'value' => 'Javascript',
+			],
+		]
 	]
 ];
 
@@ -43,4 +48,5 @@ $attributes = array_merge(
 	$attributes,
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

@@ -121,4 +121,5 @@ $attributes = array_merge(
 	Dimensions::get_attribute( 'form_padding', true ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

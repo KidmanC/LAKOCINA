@@ -6,6 +6,7 @@ use ABlocks\Controls\Typography;
 use ABlocks\Controls\Range;
 use ABlocks\Controls\Border;
 use ABlocks\Controls\Dimensions;
+use ABlocks\Controls\Link;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -20,9 +21,21 @@ $attributes = [
 		'type' => 'boolean',
 		'default' => true,
 	],
+	'postId' => [
+		'type' => 'number',
+		'default' => '',
+	],
 	'showLabels' => [
 		'type' => 'boolean',
 		'default' => true
+	],
+	'loginRedirect' => [
+		'type' => 'boolean',
+		'default' => false
+	],
+	'registerRedirect' => [
+		'type' => 'boolean',
+		'default' => false
 	],
 	'formName' => array(
 		'type' => 'string',
@@ -105,6 +118,7 @@ $attributes = array_merge(
 		'isResponsive' => false,
 		'defaultValue' => 60,
 	] ),
+	Link::get_attribute( 'link' ),
 	Typography::get_attribute( 'labelTypography', true ),
 	Typography::get_attribute( 'inputTypography', true ),
 	Typography::get_attribute( 'buttonTypography', true ),
@@ -114,4 +128,5 @@ $attributes = array_merge(
 	Dimensions::get_attribute( 'buttonPadding', true ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

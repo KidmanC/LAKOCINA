@@ -6,7 +6,7 @@
   "title": "Table Body",
   "category": "ablocks",
   "description": "Create a fully customizable, responsive table. Supports multiple rows and columns.",
-  "example": {},
+  "example": [],
   "parent": [
     "ablocks/table"
   ],
@@ -17,5 +17,11 @@
   "textdomain": "ablocks",
   "editorStyle": [
     "file:./style.css"
-  ]
+  ],
+  "attributes": {
+    "block_id": {
+      "type": "string",
+      "default": ""
+    }
+  }
 }

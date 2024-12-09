@@ -14,36 +14,38 @@ class CssGenerator {
 	public function __construct( $attributes = [] ) {
 		$this->parent_class = '.ablocks-block-' . $attributes['block_id'];
 		// Alert - don't touch here
-		$this->add_class_styles(
-			'{{WRAPPER}}',
-			BlockGlobal::get_wrapper_css( $attributes ),
-			BlockGlobal::get_wrapper_css( $attributes, 'Tablet' ),
-			BlockGlobal::get_wrapper_css( $attributes, 'Mobile' )
-		);
-		$this->add_class_styles(
-			'{{WRAPPER}}:hover',
-			BlockGlobal::get_wrapper_hover_css( $attributes ),
-			BlockGlobal::get_wrapper_hover_css( $attributes, 'Tablet' ),
-			BlockGlobal::get_wrapper_hover_css( $attributes, 'Mobile' )
-		);
-		$this->add_class_styles(
-			'{{WRAPPER}}.ablocks-hide-on-desktop,{{WRAPPER}}.ablocks-hide-on-tablet,{{WRAPPER}}.ablocks-hide-on-mobile',
-			BlockGlobal::get_wrapper_device_responsive_css( $attributes ),
-			BlockGlobal::get_wrapper_device_responsive_css( $attributes, 'Tablet' ),
-			BlockGlobal::get_wrapper_device_responsive_css( $attributes, 'Mobile' )
-		);
-		$this->add_class_styles(
-			'{{WRAPPER}}:hover > .ablocks-block-container',
-			BlockGlobal::get_container_hover_css( $attributes ),
-			BlockGlobal::get_container_hover_css( $attributes, 'Tablet' ),
-			BlockGlobal::get_container_hover_css( $attributes, 'Mobile' )
-		);
-		$this->add_class_styles(
-			'{{WRAPPER}} > .ablocks-block-container',
-			BlockGlobal::get_container_css( $attributes ),
-			BlockGlobal::get_container_css( $attributes, 'Tablet' ),
-			BlockGlobal::get_container_css( $attributes, 'Mobile' )
-		);
+		if ( isset( $attributes['_margin'] ) ) { // check has advanced tab or not
+			$this->add_class_styles(
+				'{{WRAPPER}}',
+				BlockGlobal::get_wrapper_css( $attributes ),
+				BlockGlobal::get_wrapper_css( $attributes, 'Tablet' ),
+				BlockGlobal::get_wrapper_css( $attributes, 'Mobile' )
+			);
+			$this->add_class_styles(
+				'{{WRAPPER}}:hover',
+				BlockGlobal::get_wrapper_hover_css( $attributes ),
+				BlockGlobal::get_wrapper_hover_css( $attributes, 'Tablet' ),
+				BlockGlobal::get_wrapper_hover_css( $attributes, 'Mobile' )
+			);
+			$this->add_class_styles(
+				'{{WRAPPER}}.ablocks-hide-on-desktop,{{WRAPPER}}.ablocks-hide-on-tablet,{{WRAPPER}}.ablocks-hide-on-mobile',
+				BlockGlobal::get_wrapper_device_responsive_css( $attributes ),
+				BlockGlobal::get_wrapper_device_responsive_css( $attributes, 'Tablet' ),
+				BlockGlobal::get_wrapper_device_responsive_css( $attributes, 'Mobile' )
+			);
+			$this->add_class_styles(
+				'{{WRAPPER}}:hover > .ablocks-block-container',
+				BlockGlobal::get_container_hover_css( $attributes ),
+				BlockGlobal::get_container_hover_css( $attributes, 'Tablet' ),
+				BlockGlobal::get_container_hover_css( $attributes, 'Mobile' )
+			);
+			$this->add_class_styles(
+				'{{WRAPPER}} > .ablocks-block-container',
+				BlockGlobal::get_container_css( $attributes ),
+				BlockGlobal::get_container_css( $attributes, 'Tablet' ),
+				BlockGlobal::get_container_css( $attributes, 'Mobile' )
+			);
+		}//end if
 	}
 
 	public function add_class_styles( $class_name, $desktop_styles, $tablet_styles = [], $mobile_styles = [] ) {

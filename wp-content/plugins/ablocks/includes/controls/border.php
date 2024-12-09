@@ -254,7 +254,7 @@ class Border extends ControlBaseAbstract {
 		return $css;
 	}
 
-	public static function get_hover_css( $attribute_value, $device = '' ) {
+	public static function get_hover_css( $attribute_value, $property = '', $device = '' ) {
 		$value = wp_parse_args( $attribute_value, self::get_attribute_default_value( true ) ); // avoid Undefined error
 		$css = [];
 

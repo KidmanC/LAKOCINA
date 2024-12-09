@@ -105,4 +105,5 @@ $attributes = array_merge(
 	]),
 	Border::get_attribute( 'labelBorder', true ),
 );
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

@@ -53,7 +53,7 @@ $attributes = [
 	],
 	'vimeoURL'        => [
 		'type'        => 'string',
-		'default'     => 'https://vimeo.com/889428749',
+		'default'     => 'https://vimeo.com/1034907087',
 	],
 	'youtubeURL'      => [
 		'type'        => 'string',
@@ -94,4 +94,5 @@ $attributes = array_merge(
 	CssFilter::get_attribute( 'cssFilter' )
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

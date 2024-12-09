@@ -43,4 +43,5 @@ $attributes = array_merge(
 	Border::get_attribute( 'search_border', true ),
 );
 
-return $attributes;
+return array_merge( $attributes, \ABlocks\Classes\BlockGlobal::get_attributes() );
+

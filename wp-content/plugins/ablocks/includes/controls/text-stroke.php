@@ -37,6 +37,9 @@ class TextStroke extends ControlBaseAbstract {
 	}
 
 	public static function get_css( $attribute_value, $property = '', $device = '' ) {
+		if ( empty( $attribute_value ) ) {
+			return [];
+		}
 		$default_attar_value = self::get_attribute_default_value( (bool) $device );
 		$value = wp_parse_args( $attribute_value, $default_attar_value );
 		$css = [];
